@@ -1,0 +1,35 @@
+- name: Install dependencies (openssh, openjdk, https, wget)
+  apt:
+    pkg:
+    - openssh-server
+    - openjdk-8-jdk
+    - apt-transport-https
+    - wget
+
+- name: Add Elasticsearch key
+  apt_key:
+    url: "https://packages.elastic.co/GPG-KEY-elasticsearch"
+    state: present   
+
+- name: Add Elasticsearch repository
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
+    state: present
+
+- name: Install Elasticsearch
+  apt:
+    name: elasticsearch
+    state: latest
+    update_cache: yes
+
+- name: Add network ip
+  lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    regexp: 'network.host:'
+    line: 'network.host: 0.0.0.0'
+    state: present
+
+- name: Restart Elasticsearch
+  systemd:
+    state: restarted
+    name: elasticsearch.service
