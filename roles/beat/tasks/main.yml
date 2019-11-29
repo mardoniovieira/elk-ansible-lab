@@ -35,4 +35,4 @@
 
 - name: Edit elasticsearch ip - filebeat (2)
   shell:
-    cmd: sed -ri 's_var/(.*)_home/photoshare.log_' /etc/filebeat/filebeat.yml
+    cmd: sed -ri 's_var/(.*)_home/photoshare_logs.log_' /etc/filebeat/filebeat.yml
