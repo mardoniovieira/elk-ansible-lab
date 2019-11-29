@@ -26,7 +26,7 @@
   lineinfile:
     path: /etc/elasticsearch/elasticsearch.yml
     regexp: 'network.host:'
-    line: 'network.host: 0.0.0.0'
+    line: 'network.host: ubuntuserver1'
     state: present
 
 - name: Restart Elasticsearch

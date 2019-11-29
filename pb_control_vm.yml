@@ -1,5 +1,7 @@
 ---
-- hosts: server1
+- hosts: control_vm
   become: true
   roles:
+  - elasticsearch
   - kibana
+

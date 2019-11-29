@@ -1,0 +1,7 @@
+---
+- hosts: controlled_vms
+  become: true
+  roles:
+  - env_controlled_vms
+  - conf_docker
+  - beat

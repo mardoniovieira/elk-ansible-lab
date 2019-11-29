@@ -1,0 +1,18 @@
+- name: Clone the application
+  git:
+    repo: https://github.com/alexfrt/photoshare.git
+    dest: /home/photoshare
+    force: yes 
+    version: standalone 
+
+- name: Execute app
+  shell:
+    cmd: cd /home/photoshare && docker-compose up -d
+
+- name: Create photoshare_logs
+  shell:
+    cmd: touch /home/photoshare_logs.log
+
+- name: Redirect log to photoshare_logs
+  shell:
+    cmd: docker logs photoshare_web_1 -f > /home/photoshare_logs.log &

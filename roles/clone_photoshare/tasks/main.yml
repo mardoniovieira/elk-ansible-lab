@@ -1,0 +1,6 @@
+- name: Clone the application
+  git:
+    repo: https://github.com/alexfrt/photoshare.git
+    dest: /home/$USER/photoshare
+    force: yes 
+    version: standalone 
