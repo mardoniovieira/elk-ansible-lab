@@ -1,0 +1,43 @@
+- name: Add Elasticsearch key
+  apt_key:
+    url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+    state: present
+
+- name: Add Elasticsearch repository
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
+    state: present
+
+- name: Install beats
+  apt:
+    pkg:
+    - filebeat
+    - metricbeat
+    update_cache: yes
+
+- name: Enable inputs - filebeats
+  lineinfile:
+    path: /etc/filebeat/filebeat.yml
+    regexp: '  enabled: false'
+    line: '  enabled: true'
+
+- name: Edit kibana ip - filebeats
+  lineinfile:
+    path: /etc/filebeat/filebeat.yml
+    regexp: '  #host: "localhost:5601"'
+    line: '  host: "ubuntuserver1:5601"'
+
+- name: Edit elasticsearch ip - filebeat
+  replace:
+    path: /etc/filebeat/filebeat.yml
+    regexp: 'localhost:9200'
+    replace: 'ubuntuserver1:9200'
+
+- name: Edit elasticsearch ip - filebeat (2)
+  shell:
+    cmd: sed -ri 's,var/(.*),home/photoshare_logs.log,' /etc/filebeat/filebeat.yml
+
+- name: Restart Filebeat
+  systemd:
+    state: restarted
+    name: filebeat
