@@ -51,12 +51,14 @@ $ ansible --version
 
 ## Parte 2 - Instalação do elk
 
-Clone este repositório no diretório /etc/ansible da máquina de gerenciamento (ubuntuserver1)
+Na máquina de gerenciamento (ubuntuserver1), cole os arquivos deste repositório, exeto READM.md e ansible.cfg, em /etc/ansible. Ou apague todos os aquivos do diretório ansible e clone este repositório lá
 ```
-$ git clone https://github.com/sayonarasantos/elk_ansible_lab2.git
+$ sudo rm -R /etc/ansible/*
+$ sudo git clone https://github.com/sayonarasantos/elk_ansible_lab2.git /etc/ansible/
 ```
 E execute as playbooks
 ```
+$ cd ansible
 $ ansible-plabook -K pb_control_vm.yml
 $ ansible-plabook -K pb_controlled_vms.yml
 ```
