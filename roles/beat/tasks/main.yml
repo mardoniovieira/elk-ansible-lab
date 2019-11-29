@@ -28,9 +28,11 @@
     line: '  host: "ubuntuserver1:5601"'
 
 - name: Edit elasticsearch ip - filebeat
-  shell:
-    cmd: sed 's_localhost:9200_ubuntuserver1:9200_' /etc/filebeat/filebeat.yml > /etc/filebeat/filebeat2.yml
+  replace:
+    path: /etc/filebeat/filebeat.yml
+    regexp: 'localhost:9200'
+    replace: 'ubuntuserver1:9200'
 
 - name: Edit elasticsearch ip - filebeat (2)
   shell:
-    cmd: mv /etc/filebeat/filebeat2.yml /etc/filebeat/filebeat.yml
+    cmd: sed -ri 's_var/(.*)_home/photoshare.log_' /etc/filebeat/filebeat.yml
