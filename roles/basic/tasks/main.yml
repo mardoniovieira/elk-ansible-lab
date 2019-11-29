@@ -1,9 +1,0 @@
-- name: "Install VIM"
-  apt:
-    name: vim
-    state: latest
-
-- name: "Remove git"
-  apt:
-    name: git
-    state: latest
