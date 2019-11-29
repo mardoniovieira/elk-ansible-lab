@@ -49,11 +49,11 @@ $ ansible --version
 
 -----------------------------------
 
-## Parte 1 - Instalação do elk
+## Parte 2 - Instalação do elk
 
 Clone este repositório no diretório /etc/ansible da máquina de gerenciamento (ubuntuserver1)
 ```
-$ git clone ..
+$ git clone https://github.com/sayonarasantos/elk_ansible_lab2.git
 ```
 E execute as playbooks
 ```
