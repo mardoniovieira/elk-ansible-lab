@@ -1,8 +1,14 @@
 # elk_ansible_lab2
 
-## Parte 1 - Configuração do Ansible
-
+## Configuração das máquinas
 Cenário: um máquina de gerenciamento (ubuntuserver1), que hospeda o Ansible, e uma máquina gerenciada (ubuntuserver2).
+SO das vms: Ubuntu server 18.04
+Hostname das vms:
+- Máquina de gerenciamento: ubuntuserver1
+- Máquina gerenciada: ubuntuserver2
+Usuários das vms: um usuário sudo em comum entre as máquinas
+
+## Parte 1 - Configuração do Ansible
 
 ### Python
 O Anseble usa o interpretador Python para executar seus módulos. Então, é necessário instalar o Python 2 na máquina gerenciada (ubuntuserver2)
@@ -12,7 +18,7 @@ $ sudo apt install python
 ```
 
 ### SSH
-Na máquina de gerenciamento (ubuntuserver1), gere a chave ssh
+Na máquina de gerenciamento (ubuntuserver1), gere a chave ssh sem senha
 ```
 $ ssh-keygen
 ```
@@ -59,6 +65,6 @@ $ sudo git clone https://github.com/sayonarasantos/elk_ansible_lab2.git /etc/ans
 E execute as playbooks
 ```
 $ cd ansible
-$ ansible-plabook -K pb_control_vm.yml
-$ ansible-plabook -K pb_controlled_vms.yml
+$ ansible-playbook -K pb_control_vm.yml
+$ ansible-playbook -K pb_controlled_vms.yml
 ```
