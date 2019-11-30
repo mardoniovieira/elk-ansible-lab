@@ -24,13 +24,14 @@ $ ssh-keygen
 ```
 Copie-a para a máquina gerenciada
 ```
-$ ssh-copy-id ip_m_controlled
+$ ssh-copy-id ip_vm_controlled
 ```
-E acesse a máquina gerenciada para verificar o funcionamento da chave
+E acesse a máquina gerenciada (ubuntuserver2) para verificar o funcionamento da chave
 ```
-$ ssh ip_m_controlled
+$ ssh ip_vm_controlled
 $ exit
 ```
+Obs.: Copie também a chave para a máquina ubuntuserver1, pois isso será necessário para segunda parte deste tutorial: $ ssh-copy-id ip_vm_control
 
 ### Instalação Ansible
 A instalação deve ser feita na máquina de gerenciamento (ubuntuserver1).
