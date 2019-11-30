@@ -1,12 +1,12 @@
 # elk_ansible_lab2
 
 ## Configuração das máquinas
-Cenário: um máquina de gerenciamento (ubuntuserver1), que hospeda o Ansible, e uma máquina gerenciada (ubuntuserver2).
-SO das vms: Ubuntu server 18.04
-Hostname das vms:
-- Máquina de gerenciamento: ubuntuserver1
-- Máquina gerenciada: ubuntuserver2
-Usuários das vms: um usuário sudo em comum entre as máquinas
+- Cenário: um máquina de gerenciamento (ubuntuserver1), que hospeda o Ansible, e uma máquina gerenciada (ubuntuserver2).
+- SO das vms: Ubuntu server 18.04
+- Hostname das vms:
+  - Máquina de gerenciamento: ubuntuserver1
+  - Máquina gerenciada: ubuntuserver2
+- Usuários das vms: um usuário sudo em comum entre as máquinas
 
 ## Parte 1 - Configuração do Ansible
 
