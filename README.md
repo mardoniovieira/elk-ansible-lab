@@ -62,7 +62,7 @@ Na máquina de gerenciamento (ubuntuserver1), cole os arquivos deste repositóri
 $ sudo rm -R /etc/ansible/*
 $ sudo git clone https://github.com/sayonarasantos/elk_ansible_lab2.git /etc/ansible/
 ```
-E execute as playbooks
+Por fim, execute as playbooks
 ```
 $ cd ansible
 $ ansible-playbook -K pb_control_vm.yml
