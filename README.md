@@ -1,12 +1,29 @@
 # elk_ansible_lab2
 
+## Equipe:
+- Sayonara Santos
+- Mardônio Vieira
+- Rodrigo Parente
+- Everson Cavalcante
+- Luciano Martins
+
+## Visão geral do Projeto
+- Descrição: Projeto da disciplina Gerenciamento de Rede 2019.2
+- Objetivo: Criar um ambiente de monitoramento de uma aplicação (PhotoShare), utilizando a stack ELK e configurando-o com o Ansible.
+
+-----------------------------------
+
 ## Configuração das máquinas
-- Cenário: um máquina de gerenciamento (ubuntuserver1), que hospeda o Ansible, e uma máquina gerenciada (ubuntuserver2).
+- Cenário: 
+  - Um máquina de gerenciamento (ubuntuserver1), que hospeda os serviços: Ansible, Elasticsearch e Kibana
+  - uma máquina gerenciada (ubuntuserver2), que contém os Metricbeat, o Filebeat e a aplicação (Photoshare).
 - SO das vms: Ubuntu server 18.04
 - Hostname das vms:
   - Máquina de gerenciamento: ubuntuserver1
   - Máquina gerenciada: ubuntuserver2
 - Usuários das vms: um usuário sudo em comum entre as máquinas
+
+-----------------------------------
 
 ## Parte 1 - Configuração do Ansible
 
@@ -31,9 +48,12 @@ E acesse a máquina gerenciada (ubuntuserver2) para verificar o funcionamento da
 $ ssh ip_vm_controlled
 $ exit
 ```
-Obs.: Copie também a chave para a máquina ubuntuserver1, pois isso será necessário para segunda parte deste tutorial: $ ssh-copy-id ip_vm_control
+Além disso, copie também a chave para a máquina ubuntuserver1, pois isso será necessário para segunda parte deste tutorial:
+```
+$ ssh-copy-id ip_vm_control
+```
 
-### Instalação Ansible
+### Instalação do Ansible
 A instalação deve ser feita na máquina de gerenciamento (ubuntuserver1).
 Para obter a versão mais recente do Ansible, adicione o repositório no sistema e instale o ansible desse repositório.
 Antes disso, verifique se o pacote software-properties-common está instalado (esse pacote facilita o gerenciamento de repositórios de software independentes)
@@ -56,7 +76,7 @@ $ ansible --version
 
 -----------------------------------
 
-## Parte 2 - Instalação do elk
+## Parte 2 - Instalação do Elasticsearch, do Kibana e dos Beats
 
 Na máquina de gerenciamento (ubuntuserver1), cole os arquivos deste repositório, exeto READM.md e ansible.cfg, em /etc/ansible. Ou apague todos os aquivos do diretório ansible e clone este repositório lá
 ```
