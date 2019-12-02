@@ -7,7 +7,7 @@
 - Everson Cavalcante
 - Luciano Martins
 
-## Visão geral do Projeto
+## Visão geral do projeto
 - Descrição: Projeto da disciplina Gerenciamento de Rede 2019.2
 - Objetivo: Criar um ambiente de monitoramento de uma aplicação (PhotoShare), utilizando a stack ELK e configurando-o com o Ansible.
 
