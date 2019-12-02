@@ -15,7 +15,7 @@
     - metricbeat
     update_cache: yes
 
-- name: Enable inputs - filebeats
+- name: Enable inputs - filebeat
   lineinfile:
     path: /etc/filebeat/filebeat.yml
     regexp: '  enabled: false'
@@ -33,7 +33,7 @@
     regexp: 'localhost:9200'
     replace: 'ubuntuserver1:9200'
 
-- name: Edit elasticsearch ip - filebeat (2)
+- name: Edit log file path - filebeat
   shell:
     cmd: sed -ri 's,var/(.*),home/photoshare_logs.log,' /etc/filebeat/filebeat.yml
 
@@ -41,3 +41,20 @@
   systemd:
     state: restarted
     name: filebeat
+
+- name: Edit kibana ip - metricbeat
+  replace:
+    path: /etc/metricbeat/metricbeat.yml
+    regexp: '5601\n  #host: "localhost:5601"'
+    replace: '5601\n  host: "ubuntuserver1:5601"'
+
+- name: Edit elasticsearch ip - metricbeat
+  replace:
+    path: /etc/metricbeat/metricbeat.yml
+    regexp: 'localhost:9200'
+    replace: 'ubuntuserver1:9200'
+
+- name: Restart Metricbeat
+  systemd:
+    state: restarted
+    name: metricbeat
