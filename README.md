@@ -81,7 +81,7 @@ $ ansible --version
 Na máquina de gerenciamento (ubuntuserver1), cole os arquivos deste repositório, exeto READM.md e ansible.cfg, em /etc/ansible. Ou apague todos os aquivos do diretório ansible e clone este repositório lá
 ```
 $ sudo rm -R /etc/ansible/*
-$ sudo git clone https://github.com/sayonarasantos/elk_ansible_lab2.git /etc/ansible/
+$ sudo git clone https://github.com/sayonarasantos/elk-ansible-lab.git /etc/ansible/
 ```
 Por fim, execute as playbooks
 ```
